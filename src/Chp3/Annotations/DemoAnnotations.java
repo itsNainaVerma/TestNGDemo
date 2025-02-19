@@ -1,4 +1,4 @@
-package TestNG.Chp3.Annotations;
+package Chp3.Annotations;
 
 import org.testng.annotations.BeforeMethod;
 
