@@ -29,13 +29,13 @@ public class BM_BC_OrangeHRM {
 		System.setProperty("webdriver.chrome.driver", "E:\\Applications\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 		driver = new ChromeDriver();
 		
-		//driver.manage().window().maximize();
+		//driver.manage().window().maximize(); 
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		System.out.println("1. Open chrome & application");
 	}
-	@Test(priority = 1)
+	@Test
 	public void signIn() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
 		WebElement username =  driver.findElement(By.name("username"));
@@ -52,7 +52,7 @@ public class BM_BC_OrangeHRM {
 	}
 	
 	
-	@Test(priority = 2)
+	@Test
 	public void userSearch() {
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSecongs(5));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span")));
@@ -69,7 +69,7 @@ public class BM_BC_OrangeHRM {
 			textUsername.sendKeys("Admiin");
 		} else {
 		    System.out.println("Element is not interactable.");
-		}
+		}//just added if else for fun, this will work if you directly find element and send keys.
 	
 		WebElement searchButton =  driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"));
 		searchButton.click();

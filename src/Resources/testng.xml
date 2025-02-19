@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="1" name="Test">
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<suite name="Suite - Test Automation University">
+  <test thread-count="1" name="configuration annotation Test">
+    <classes>
+      <class name="Chp3.Annotations.annotationsUsage">
+      <methods>
+      <include name = "searchCustomer"/>
+      <include name = "searchProduct"/>
+      </methods>
+      </class>
+    </classes>
+  </test> 
+</suite> 
+

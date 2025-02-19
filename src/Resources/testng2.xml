@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite - Test Automation University">
+  <test name="Search For A Custome">
+    <classes>
+      <class name="Chp3.Annotations.annotationsUsage">
+        <methods>
+             <include name="searchCustomer"></include>
+        </methods>
+       </class>
+    </classes>
+  </test> 
+   
+    <test name="Search For A Product">
+    <classes>
+      <class name="Chp3.Annotations.annotationsUsage">
+        <methods>
+             <include name="searchProductr"></include>
+        </methods>
+       </class>
+    </classes>
+  </test> 
+
+</suite> 
