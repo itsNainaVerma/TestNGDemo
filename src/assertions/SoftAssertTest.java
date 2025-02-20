@@ -3,7 +3,10 @@ package assertions;
 /*
 Using same code of BC_MC_OrangeHRM.java to check assertion
 added method testHomePageVerification() for assertion check
-Hard Assert PASS scenarios
+Soft Assert Fail scenarios
+
+-->A soft assert continues execution after a fail 
+and moves on to the next statement line <--
 */
 
 import java.time.Duration;
@@ -19,11 +22,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-public class VerifyHardAssertPass {
+public class SoftAssertTest
+{
 
 		WebDriver driver;
 		WebDriverWait wait;
+		SoftAssert softAssert = new SoftAssert();// this is an in-build TestNG class
 		
 		@BeforeClass
 		public void setUp() {
@@ -54,15 +60,16 @@ public class VerifyHardAssertPass {
 	
 		@Test
 		public void testHomePageVerification() {
-			Assert.assertEquals(true,true,"The welcome link is not correct on home page");
+			softAssert.assertEquals(true,false,"Welcome link is not correct on home page");
 			System.out.println("3. Verify Welcome Link");
 			
-			Assert.assertFalse(false, "The admin tab is not displayed");
+			//execution will continue here because we have used softAssert
+			softAssert.assertFalse(true, "The admin tab is not displayed");
 			System.out.println("4. Verify Admin Tab");
 			 
-			Assert.assertEquals(true, true);
+			softAssert.assertEquals(true, true);
 			
-			Assert.assertTrue(true,"The dashboard is not corrrect");
+			softAssert.assertTrue(false,"The dashboard is not corrrect");
 			System.out.println("5. Verify dashboard");
 		}
 		
