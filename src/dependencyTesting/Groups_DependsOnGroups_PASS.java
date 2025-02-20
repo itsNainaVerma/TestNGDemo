@@ -2,11 +2,6 @@ package dependencyTesting;
 
 import java.time.Duration;
 
-/* Method test2_openOrangeHRM() will fail. 
- * Since dependency is mentioned on rest of the tests, 
- * those tests will not run in this scenario and will be skipped.
-*/
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,12 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class DependsOnMethods_Fail {
+public class Groups_DependsOnGroups_PASS {
 
 	WebDriver driver;
 	WebDriverWait wait;
 	 
-	@Test
+	@Test (groups = "initialize")
 	public void test1_SetUpChrome() {
 		System.setProperty("webdriver.chrome.driver", "E:\\\\Applications\\\\chromedriver-win64\\\\chromedriver-win64\\\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -29,14 +24,14 @@ public class DependsOnMethods_Fail {
 		System.out.println("1. set up chrome");
 	}
 	
-	@Test (dependsOnMethods="test1_SetUpChrome")
+	@Test (dependsOnGroups="initialize", groups = "env_application")
 	public void test2_openOrangeHRM() {
 		driver.get("https://opensource-demo.orangehrmlive.com/");
-		Assert.assertEquals(false, true);
+		Assert.assertEquals(true, true);
 		System.out.println("2. Open OrangeHRM");
 	}
 	
-	@Test (dependsOnMethods="test2_openOrangeHRM")
+	@Test (dependsOnGroups="env_application", groups="Sign_In")
 	public void test3_signIn() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
 		WebElement username =  driver.findElement(By.name("username"));
@@ -52,7 +47,7 @@ public class DependsOnMethods_Fail {
 		System.out.println("3. Sign In");
 	}
 	
-	@Test (dependsOnMethods={"test2_openOrangeHRM","test3_signIn"})
+	@Test (dependsOnGroups="Sign_In")
 	public void test4_userSearch() {
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span")));
@@ -78,7 +73,7 @@ public class DependsOnMethods_Fail {
 	
 	}
 	
-	@Test (dependsOnMethods="test4_userSearch")
+	@Test (dependsOnGroups="Sign_In")
 	public void test5_searchEmployee() {
         WebElement txtEmployee = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/input"));
         txtEmployee.sendKeys("Alex");
@@ -90,7 +85,7 @@ public class DependsOnMethods_Fail {
     	
 	}
 	
-	@Test (dependsOnMethods={"test2_openOrangeHRM","test3_signIn"})
+	@Test (dependsOnGroups={"env_application","Sign_In"})
 	public void test6_signOut() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/p")));
 		WebElement userProfile = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/p"));
@@ -101,12 +96,6 @@ public class DependsOnMethods_Fail {
 		
 		System.out.println("6. signed out");
 	}
-	
-	
-	@Test (dependsOnMethods="test1_SetUpChrome")
-	public void test7_tearDown() {
-		System.out.println("7. closing chrome");
-		driver.quit();
-	}
+
 }
 

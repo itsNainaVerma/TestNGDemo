@@ -5,3 +5,11 @@ Dependency testing is when two or more actions, two or more tasks, or two or mor
 1. dependsOn
 2. groups
 3. dependsOnGroups
+
+
+--> The dependsOnMethods attribute is used to specify that a test method depends on the successful execution of one or more other test methods. 
+If the dependent method fails, the current test will be skipped.
+
+--> The groups attribute allows you to organize and categorize test methods into groups. This can be helpful for running specific sets of tests based on their group or to include/exclude certain groups from execution.
+
+-->  the dependsOnGroups attribute allows you to specify that a test method should depend on the successful execution of tests in specific groups. If any test in the specified group fails, the dependent test will be skipped.
