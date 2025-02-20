@@ -36,7 +36,7 @@ public class VerifyHardAssertFail
 			
 			//driver.manage().window().maximize(); 
 			
-			driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+			driver.get("https://opensource-demo.orangehrmlive.com/");
 			wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			System.out.println("1. Open chrome & application");
 		}
@@ -74,7 +74,7 @@ public class VerifyHardAssertFail
 		
 		@Test
 		public void userSearch() {
-			//driver.manage().timeouts().implicitlyWait(Duration.ofSecongs(5));
+			//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span")));
 			WebElement menuAdmin = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span"));
 			menuAdmin.click();
@@ -83,7 +83,7 @@ public class VerifyHardAssertFail
 			WebElement dropDownArrow = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[3]/button/i"));
 			dropDownArrow.click();
 			
-			//driver.manage().timeouts().implicitlyWait(Duration.ofSecongs(5));
+			//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			WebElement textUsername =  driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
 			if (textUsername.isDisplayed() && textUsername.isEnabled()) {
 				textUsername.sendKeys("Admiin");
