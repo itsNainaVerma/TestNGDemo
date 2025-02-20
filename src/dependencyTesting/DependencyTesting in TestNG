@@ -1,0 +1,7 @@
+-->So what exactly is dependency testing? 
+Dependency testing is when two or more actions, two or more tasks, or two or more functions depend on the order of their methods. For example, we must sign into the application before we can sign out of the application. Therefore, signing out depends on us first signing in. If we, reverse that order and execute, then the sign out method would fail.
+
+-->Below Attributes are used to assist annotations with our dependency testing. All three of these attributes can be placed in the configuration and test annotations:
+1. dependsOn
+2. groups
+3. dependsOnGroups

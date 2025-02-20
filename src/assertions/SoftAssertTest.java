@@ -17,7 +17,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -71,6 +70,8 @@ public class SoftAssertTest
 			
 			softAssert.assertTrue(false,"The dashboard is not corrrect");
 			System.out.println("5. Verify dashboard");
+			
+			softAssert.assertAll();
 		}
 		
 		@Test
