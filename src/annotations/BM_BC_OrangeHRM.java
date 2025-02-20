@@ -4,7 +4,7 @@ if we use @BeforeMethod instead of @BeforeClass
 the test will fail 
 because we need to run all test one after other
 */
-package Chp3.Annotations;
+package annotations;
 
 import java.time.Duration;
 

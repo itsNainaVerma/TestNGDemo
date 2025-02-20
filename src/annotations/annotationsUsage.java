@@ -1,4 +1,4 @@
-package Chp3.Annotations;
+package annotations;
 
 /*The sequence of execution of annotation is as below -
 @BeforeSuite
