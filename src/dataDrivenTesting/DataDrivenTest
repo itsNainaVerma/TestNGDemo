@@ -1,0 +1,18 @@
+-->DataProvider annotation
+The @DataProvider annotation presents two purposes at the same time. 
+The first purpose is to pass an unlimited number of values to a test method. There is no restriction. The values can be any Java data type.
+The second purpose is to allow the test method to be invoked with different data sets. Each set will run and have its own test results. In our example, we have three sets of data.
+
+
+-->dataProvider Attribute
+The dataProvider attribute connects the @DataProvider annotation to the test method. This is how both methods converse with each other. Since it’s an attribute of the @Test annotation, we write dataProvider with a lowercase d and set it equal to the @DataProvider's method name surrounded by double quotes.
+
+-----------------------------------------------
+
+-->We can also give the @DataProvider annotation a name. we connect the @DataProvider annotation and the test method by using the data provider's name and not the method name.
+the data provider's name is optional
+
+
+-->dataProviderClass Attribute
+The dataProviderClass attribute allows us to separate the test method and data provider into different classes. 
+The dataProviderClass is an attribute of the @Test annotation just like the dataProvider.

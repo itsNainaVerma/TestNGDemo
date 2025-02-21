@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Demo">
+  <test name="include and exclude groups with regular expression">
+  <groups>
+  <run>
+    <include name = "defect.*"/>
+    <include name = "env_application"/>
+  </run>
+  </groups>
+    <classes>
+      <class name="dependencyTesting.DemoWebsiteTest"/>
+          <class name="dependencyTesting.Groups_DependsOnGroups_PASS"/>
+    </classes>
+  </test> <!-- include and exclude groups with regular expression -->
+</suite> <!-- TestNG Demo -->

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Cross browser testing">
+  <parameter name = "URL" value="https://testautomationu.applitools.com/"/>
+  
+  
+  <test name="Test On Chrome">
+    <parameter name = "BrowserType" value="Chrome"></parameter>
+      <classes>
+        <class name = "parameterizedTests.CrossBrowserTest"/>
+      </classes>
+  </test> <!-- Test on Chrome -->
+  
+  <test name="Test on Edge">
+    <parameter name = "BrowserType" value="Edge"/>
+      <classes>
+        <class name = "parameterizedTests.CrossBrowserTest"/>
+      </classes>
+  </test> <!-- Test on edge -->
+  
+  
+</suite> <!-- Cross browser testing -->

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Demo">
+  <test name="All Groups Test">
+  <groups>
+  <run>
+  </run>
+  </groups>
+    <classes>
+      <class name="dependencyTesting.DemoWebsiteTest"/>
+    </classes>
+  </test> <!-- All Groups Test -->
+</suite> <!-- TestNG Demo -->
